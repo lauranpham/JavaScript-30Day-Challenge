@@ -82,15 +82,21 @@
       const inputs = document.querySelectorAll(".controls input");
 
       function handleUpdate() {
-        console.log(this.value);
+        // console.log(this.value);
         // there is a data attribute of data-sizing to narrow input values according to suffix
-        // this.dataset will give you an object of the set of data attributes
-        const suffix = this.dataset.sizing;
+        // this.dataset will give you an object of all the element's data attributes
+        // or nothing for the color since there is no suffix
+        const suffix = this.dataset.sizing || "";
+        // select variable to update
+        document.documentElement.style.setProperty(
+          `--${this.name}`,
+          this.value + suffix
+        );
       }
       // 2. use forEach method to loop over nodelist and add eventListener with arrow function
-      inputs.forEach((input) => input.addEvemtListener("change", handleUpdate));
+      inputs.forEach((input) => input.addEventListener("change", handleUpdate));
       inputs.forEach((input) =>
-        input.addEvemtListener("mousemove", handleUpdate)
+        input.addEventListener("mousemove", handleUpdate)
       );
     </script>
   </body>
