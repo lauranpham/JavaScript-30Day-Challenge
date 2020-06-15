@@ -83,6 +83,9 @@
 
       function handleUpdate() {
         console.log(this.value);
+        // there is a data attribute of data-sizing to narrow input values according to suffix
+        // this.dataset will give you an object of the set of data attributes
+        const suffix = this.dataset.sizing;
       }
       // 2. use forEach method to loop over nodelist and add eventListener with arrow function
       inputs.forEach((input) => input.addEvemtListener("change", handleUpdate));
