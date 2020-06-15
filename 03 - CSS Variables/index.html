@@ -86,6 +86,9 @@
       }
       // 2. use forEach method to loop over nodelist and add eventListener with arrow function
       inputs.forEach((input) => input.addEvemtListener("change", handleUpdate));
+      inputs.forEach((input) =>
+        input.addEvemtListener("mousemove", handleUpdate)
+      );
     </script>
   </body>
 </html>
