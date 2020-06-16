@@ -87,7 +87,8 @@
         // this.dataset will give you an object of all the element's data attributes
         // or nothing for the color since there is no suffix
         const suffix = this.dataset.sizing || "";
-        // select variable to update
+        // select root element to change the style property.
+        console.log(document.documentElement);
         document.documentElement.style.setProperty(
           `--${this.name}`,
           this.value + suffix
