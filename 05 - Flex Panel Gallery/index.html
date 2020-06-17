@@ -148,6 +148,27 @@
       </div>
     </div>
 
-    <script></script>
+    <script>
+      // js to add and remove class
+      const panels = document.querySelectorAll(".panel");
+
+      function toggleOpen() {
+        this.classList.toggle("open");
+      }
+
+      function toggleActive(e) {
+        // run toggleActive after flex-grow since e includes two events.
+        if (e.propertyName.includes("flex")) {
+          this.classList.toggle("open-active");
+        }
+      }
+      // calling toggleOpen() runs on pageload rather than event. Just reference function upon click
+      // panels.forEach((panel) => panel.addEventListener("click", toggleOpen()));
+      panels.forEach((panel) => panel.addEventListener("click", toggleOpen));
+      // transitionend occurs after other events are heard
+      panels.forEach((panel) =>
+        panel.addEventListener("transitionend", toggleActive)
+      );
+    </script>
   </body>
 </html>
