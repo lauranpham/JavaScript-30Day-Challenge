@@ -1,22 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Type Ahead 👀</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Type Ahead 👀</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form class="search-form">
+      <input type="text" class="search" placeholder="City or State" />
+      <ul class="suggestions">
+        <li>Filter for a city</li>
+        <li>or a state</li>
+      </ul>
+    </form>
+    <script>
+      const endpoint =
+        "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+      // extract data from endpoint
+      const places = [];
+      // HTML/XML HTTP request in browser uses JQuery, JSON or libray like axios
+      // fetch is a new API built into the browser
+      // fetch returns a promise - waiting. You do not need to create a callback
+      // .then
+      fetch(endpoint) // returns promise
+        .then((blob) => blob.json()) // returns promise
+        .then((data) => places.push(...data)); // spread this data (individual elements) into this push method as opposed to pushing in a full array of the data
+      // data is pushed into cities array
 
-  <form class="search-form">
-    <input type="text" class="search" placeholder="City or State">
-    <ul class="suggestions">
-      <li>Filter for a city</li>
-      <li>or a state</li>
-    </ul>
-  </form>
-<script>
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
-
-</script>
-</body>
+      function findMatches(wordToMatch, places) {
+        return places.filter((place) => {
+          // figure out if city or state matches what was searched
+          const regex = new RegExp(wordToMatch, "gi"); //pass in flags e.g. g = global, i = insensitive
+          return place.city.match(regex) || place.state.match(regex);
+        });
+      }
+    </script>
+  </body>
 </html>
