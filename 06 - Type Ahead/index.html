@@ -26,7 +26,6 @@
         .then((blob) => blob.json()) // returns promise
         .then((data) => places.push(...data)); // spread this data (individual elements) into this push method as opposed to pushing in a full array of the data
       // data is pushed into cities array
-
       function findMatches(wordToMatch, places) {
         return places.filter((place) => {
           // figure out if city or state matches what was searched
