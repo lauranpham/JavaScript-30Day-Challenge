@@ -17,6 +17,7 @@
       // what shape the join and end of lines are
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
+      ctx.lineWidth = 50;
       // set default values for variables
       let isDrawing = false;
       let lastX = 0;
@@ -32,7 +33,7 @@
         // destructuring an array with lastX and lastY values
         [lastX, lastY] = [e.offsetX, e.offsetY];
       }
-      canvas.addEventListener("mousedown", () => {
+      canvas.addEventListener("mousedown", (e) => {
         isDrawing = true;
         [lastX, lastY] = [e.offsetX, e.offsetY];
       });
