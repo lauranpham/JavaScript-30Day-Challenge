@@ -25,9 +25,15 @@
       function draw(e) {
         if (!isDrawing) return; // stop the fn from running when they are not mousedown
         console.log(e);
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(e.offsetX, e.offsetY);
+        ctx.stroke();
+        // destructuring an array with lastX and lastY values
+        [lastX, lastY] = [e.offsetX, e.offsetY];
       }
-      canvas.addEventListener("mouseover", draw);
       canvas.addEventListener("mousedown", () => (isDrawing = true));
+      canvas.addEventListener("mouseover", draw);
       canvas.addEventListener("mouseup", () => (isDrawing = false));
       canvas.addEventListener("mouseout", () => (isDrawing = false));
     </script>
