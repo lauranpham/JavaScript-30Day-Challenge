@@ -35,6 +35,9 @@
         // destructuring an array with lastX and lastY values
         [lastX, lastY] = [e.offsetX, e.offsetY];
         hue++; // increments hue with each mousemove event
+        if (hue >= 360) {
+          hue = 0;
+        }
       }
       canvas.addEventListener("mousedown", (e) => {
         console.log(e);
