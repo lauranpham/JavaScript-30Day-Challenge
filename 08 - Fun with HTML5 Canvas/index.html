@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>HTML5 Canvas</title>
-</head>
-<body>
-<canvas id="draw" width="800" height="800"></canvas>
-<script>
-</script>
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML5 Canvas</title>
+  </head>
+  <body>
+    <canvas id="draw" width="800" height="800"></canvas>
+    <script>
+      const canvas = document.querySelector("#draw");
+      // grab the 2d context of the canvas
+      const ctx = canvas.getContext("2d");
+      // set canvas height and width to window
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      ctx.strokeStyle = "#BADA55";
+      // what shape the join and end of lines are
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      // set default values for variables
+      let isDrawing = false;
+      let lastX = 0;
+      let lastY = 0;
+    </script>
 
-<style>
-  html, body {
-    margin: 0;
-  }
-</style>
-
-</body>
+    <style>
+      html,
+      body {
+        margin: 0;
+      }
+    </style>
+  </body>
 </html>
