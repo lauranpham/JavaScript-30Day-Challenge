@@ -34,10 +34,11 @@
         [lastX, lastY] = [e.offsetX, e.offsetY];
       }
       canvas.addEventListener("mousedown", (e) => {
+        console.log(e);
         isDrawing = true;
         [lastX, lastY] = [e.offsetX, e.offsetY];
       });
-      canvas.addEventListener("mouseover", draw);
+      canvas.addEventListener("mousemove", draw);
       canvas.addEventListener("mouseup", () => (isDrawing = false));
       canvas.addEventListener("mouseout", () => (isDrawing = false));
     </script>
