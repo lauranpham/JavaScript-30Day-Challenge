@@ -95,11 +95,31 @@
     </div>
 
     <script>
-      // create global variables
+      // create global variables (value can be retrieved in console)
       let lastCheck;
       // create function to set lastCheck
+      // e is the event and this is the element
       function handleCheck(e) {
+        // check if they had the shift key down
+        // AND check that they are checking it
+        // set a flag variable called inBetween to determine inbetween checkboxes
+        let inBetween = false;
+        if (e.shiftKey && this.checked) {
+          // loop over every single checbox
+          checkboxes.forEach((checkbox) => {
+            if (checkbox === this || checkbox === lastChecked) {
+              inBetween = !inBetween;
+              // first check will make inBetween true
+              // second check will make inBetween false
+            }
+
+            if (inBetween) {
+              checkbox.checked = true;
+            }
+          });
+        }
         console.log(e);
+        lastChecked = this;
       }
       // add event listener to all checkboxes
       const checkboxes = document.querySelectorAll(
@@ -109,8 +129,6 @@
       checkboxes.forEach((checkbox) => {
         checkbox.addEventListener("click", handleCheck);
       });
-
-      // add event listener to shift
     </script>
   </body>
 </html>
