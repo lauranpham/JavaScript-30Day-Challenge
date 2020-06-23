@@ -35,6 +35,8 @@ function handleProgress() {
 video.addEventListener("click", togglePlay);
 video.addEventListener("play", updateButton);
 video.addEventListener("pause", updateButton);
+video.addEventListener("timeupdate", handleProgress);
+
 toggle.addEventListener("click", togglePlay); // call function without need to pass event
 skipButtons.forEach((button) => button.addEventListener("click", skip));
 
