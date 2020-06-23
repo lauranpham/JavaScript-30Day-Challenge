@@ -12,3 +12,5 @@ function togglePlay() {
   video.paused ? video.play() : video.pause();
 }
 // Hook up the event listeners
+video.addEventListener("click", togglePlay); // call function without need to pass event
+toggle.addEventListener("click", togglePlay); // call function without need to pass event
