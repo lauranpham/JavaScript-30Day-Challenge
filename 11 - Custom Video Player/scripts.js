@@ -33,7 +33,9 @@ function handleProgress() {
 }
 
 function scrub(e) {
-  console.log(e);
+  //   console.log(e); // provides details of offsetX e.g. 280px into the element
+  const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+  video.currentTime = scrubTime;
 }
 // Hook up the event listeners
 video.addEventListener("click", togglePlay);
