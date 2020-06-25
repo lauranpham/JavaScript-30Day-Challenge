@@ -244,6 +244,16 @@
 
       function checkSlide(e) {
         console.log(e);
+        // when image is peaking out at 50%, add the active class
+        sliderImages.forEach((sliderImage) => {
+          // half way through the image
+          const slideInAt =
+            window.scrollY + window.innerHeight - sliderImage.height / 2; // determine where the bottom of the window is and subtract half height of sliderImage
+          // bottom of image
+          const imageBottom = sliderImage.offsetTop + sliderImage.height;
+          const ifHalfShown = slideInAt > sliderImage.offsetTop;
+          const isNotScrolledPast = window.scrollY < imageBottom;
+        });
       }
 
       // window.addEventListener("scroll", debounce(checkSlide, 500)); // configure wait 500 millisecond or 1/2 a second
