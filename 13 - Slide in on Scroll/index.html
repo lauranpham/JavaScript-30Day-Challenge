@@ -240,7 +240,7 @@
       }
 
       // select all sliding images
-      const sliderimages = document.querySelectorAll(".slide-in");
+      const sliderImages = document.querySelectorAll(".slide-in");
 
       function checkSlide(e) {
         console.log(e);
@@ -251,8 +251,13 @@
             window.scrollY + window.innerHeight - sliderImage.height / 2; // determine where the bottom of the window is and subtract half height of sliderImage
           // bottom of image
           const imageBottom = sliderImage.offsetTop + sliderImage.height;
-          const ifHalfShown = slideInAt > sliderImage.offsetTop;
+          const isHalfShown = slideInAt > sliderImage.offsetTop;
           const isNotScrolledPast = window.scrollY < imageBottom;
+          if (isHalfShown && isNotScrolledPast) {
+            sliderImage.classList.add("active");
+          } else {
+            sliderImage.classList.remove("active");
+          }
         });
       }
 
