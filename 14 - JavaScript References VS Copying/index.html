@@ -59,8 +59,22 @@
       // assign a blank object, fold in an existing object, folding in new changes
       const cap = Object.assign({}, person, { number: 99, age: 12 });
       // We will hopefully soon see the object ...spread
-      const cap2 = { ...person };
+      // const cap2 = { ...person };
       // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+      const laura = {
+        name: "Laura",
+        age: 26,
+        social: {
+          twitter: "@lauraapham",
+          facebook: "lauraapham",
+        },
+      };
+      console.log(laura);
+
+      const dev = Object.assign({}, laura);
+      // only able to change values that are one level deep. Need a function called clone deep to change values beyond 1 level
+      // a hack to deep clone is to transform into a string then an object - FULL COPY
+      const dev2 = JSON.parse(JSON.stringify(laura));
     </script>
   </body>
 </html>
