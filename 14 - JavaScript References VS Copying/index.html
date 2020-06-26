@@ -56,9 +56,10 @@
       // and think we make a copy:
 
       // how do we take a copy instead?
-
+      // assign a blank object, fold in an existing object, folding in new changes
+      const cap = Object.assign({}, person, { number: 99, age: 12 });
       // We will hopefully soon see the object ...spread
-
+      const cap2 = { ...person };
       // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
     </script>
   </body>
