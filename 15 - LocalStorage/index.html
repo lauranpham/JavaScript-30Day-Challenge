@@ -69,6 +69,10 @@
         };
         items.push(item);
         populateList(items, itemsList);
+        // setting items array into local storage for refreshing
+        // localstorage can only store strings. Need to stringify before conversion to string
+        // JSON.stringify(object)
+        localStorage.setItem("items", JSON.stringify(items));
         console.log(item);
         // clears the input in the form
         this.reset();
