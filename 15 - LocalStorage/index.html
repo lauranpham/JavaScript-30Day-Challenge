@@ -56,7 +56,7 @@
     <script>
       const addItems = document.querySelector(".add-items");
       const itemsList = document.querySelector(".plates");
-      const items = [];
+      const items = JSON.parse(localStorage.getItem("items")) || [];
 
       function addItem(e) {
         // prevent reloading and transfer to server side. All done in client side
@@ -94,6 +94,8 @@
           .join("");
       }
       addItems.addEventListener("submit", addItem);
+
+      populateList(items, itemsList);
     </script>
   </body>
 </html>
