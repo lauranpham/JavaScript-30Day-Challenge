@@ -93,7 +93,19 @@
           })
           .join("");
       }
+
+      function toggleDone(e) {
+        // captures clicks of entire unordered list parent
+        // return if not clicking on input
+        if (!e.target.matches("input")) return; // skip this unless its an input
+        const el = e.target;
+        const index = el.dataset.index;
+        // reassigning to opposite of self = toggling boolean
+        items[index].done = !items[index].done;
+      }
       addItems.addEventListener("submit", addItem);
+      // event delegation - listen to event on something higher
+      itemsList.addEventListener("click", toggleDown);
 
       populateList(items, itemsList);
     </script>
