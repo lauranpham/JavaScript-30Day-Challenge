@@ -102,6 +102,7 @@
         const index = el.dataset.index;
         // reassigning to opposite of self = toggling boolean
         items[index].done = !items[index].done;
+        localStorage.setItem("items", JSON.stringify(items));
       }
       addItems.addEventListener("submit", addItem);
       // event delegation - listen to event on something higher
