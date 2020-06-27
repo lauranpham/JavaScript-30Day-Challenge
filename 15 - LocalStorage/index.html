@@ -72,7 +72,19 @@
         // clears the input in the form
         this.reset();
       }
-
+      // items will go into plates and itemsList in platesList. Allows for reusability
+      function populateList(plates = [], platesList) {
+        // map returns an array which you need to join
+        platesList.innerHTML = plates
+          .map((plate, i) => {
+            return `
+          <li>
+            <label for="">${plate.text}</label>
+          </li>
+          `;
+          })
+          .join("");
+      }
       addItems.addEventListener("submit", addItem);
     </script>
   </body>
