@@ -37,6 +37,22 @@
       const hero = document.querySelector(".hero");
       const text = hero.querySelector(h1);
 
+      function shadow(e) {
+        // get width and height of element
+        const width = hero.offsetWidth;
+        const height = hero.offsetHeight;
+        // destructuring assignment
+        // const { offsetWidthh: width, offsetHeight: height } = hero;
+        let { offsetX: x, offsetY: y } = e;
+        // On hover of children, will capture children's x and y therefore must normalise
+        console.log(x, y);
+        // e target is what the event is triggered on i.e. h1
+        // this is what it is listening to i.e. hero
+        if (this !== e.target) {
+          x = x + e.targetoffsetLeft;
+          y = y + e.targetOffsetTop;
+        }
+      }
       hero.addEventListener("mousemove", shadow);
     </script>
   </body>
