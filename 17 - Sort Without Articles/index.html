@@ -60,6 +60,9 @@
         "An Old Dog",
       ];
       // create strip function first to strip 'a' and 'an'
+      function strip(bandName) {
+        return bandName.replace(/^(a |the |an)/i, "").trim();
+      }
       const sortedBands = bands.sort(function (a, b) {});
     </script>
   </body>
