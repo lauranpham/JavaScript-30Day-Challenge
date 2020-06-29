@@ -63,7 +63,9 @@
       function strip(bandName) {
         return bandName.replace(/^(a |the |an)/i, "").trim();
       }
-      const sortedBands = bands.sort(function (a, b) {});
+      const sortedBands = bands.sort(function (a, b) {
+        return strip(a) > strip(b) ? 1 : -1;
+      });
     </script>
   </body>
 </html>
