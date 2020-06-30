@@ -185,7 +185,14 @@
       const timeNodes = document.querySelectorAll("[data-time]");
       // spread to create array
       const timeArray = [...timeNodes];
-      const seconds = timeArray.map((node) => node.dataset.time);
+      const seconds = timeArray
+        .map((node) => node.dataset.time)
+        .map((timeCode) => {
+          // use destructuring to extract mins and secs of time
+          // calls parseFloat function in every item in array
+          const [mins, secs] = timeCode.split(":").map(parseFloat);
+          return mins * 60 + secs;
+        });
     </script>
   </body>
 </html>
