@@ -25,13 +25,17 @@ function getVideo() {
 }
 
 function paintToCanvas() {
-  const width = video.videoWidth;
-  const height = video.videoHeight;
+  const width = video.offsetWidth;
+  const height = video.offsetHeight;
+  console.log(width, height);
   //   set canvas width and height
   canvas.width = width;
   canvas.height = height;
 
-  setInterval(() => {});
+  setInterval(() => {
+    ctx.drawImage(video, 0, 0, width, height);
+  }, 16);
 }
 
 getVideo();
+paintToCanvas();
