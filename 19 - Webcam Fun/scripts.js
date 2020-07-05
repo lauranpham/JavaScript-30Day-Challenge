@@ -18,6 +18,9 @@ function getVideo() {
       //   or add it to the video srcObject
       video.srcObject = localMediaStream;
       video.play();
+    })
+    .catch((err) => {
+      console.error("OH NOOO!!", err);
     });
 }
 
