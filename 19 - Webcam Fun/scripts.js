@@ -24,4 +24,14 @@ function getVideo() {
     });
 }
 
+function paintToCanvas() {
+  const width = video.videoWidth;
+  const height = video.videoHeight;
+  //   set canvas width and height
+  canvas.width = width;
+  canvas.height = height;
+
+  setInterval(() => {});
+}
+
 getVideo();
