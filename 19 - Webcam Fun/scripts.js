@@ -34,6 +34,12 @@ function paintToCanvas() {
 
   return setInterval(() => {
     ctx.drawImage(video, 0, 0, width, height);
+    // take pixels out
+    // let pixels = ctx.getImageData(0, 0, width, height);
+    // // manipulate pixels
+    // pixels = redEffect(pixels);
+    // // put pixels back
+    // ctx.putImageData(pixels, 0, 0);
   }, 16);
 }
 
@@ -54,6 +60,15 @@ function takePhoto() {
   strip.insertBefore(link, strip.firstChild);
   console.log(link);
 }
+
+// function redEffect(pixels) {
+//   for (let i = 0; i < pixels.data.length; i += 4) {
+//     pixels.data[i + 0] = pixels.data[i + 0] + 100; // red
+//     pixels.data[i + 1] = pixels.data[i + 1] - 50; // green
+//     pixels.data[i + 2] = pixels.data[i + 2] * 0.5; //blue
+//   }
+//   return pixels;
+// }
 getVideo();
 // paintToCanvas();
 video.addEventListener("canplay", paintToCanvas);
