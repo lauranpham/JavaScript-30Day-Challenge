@@ -8,3 +8,17 @@ const snap = document.querySelector(".snap");
 // package.json has browsersync dependency
 // step 1. npm install - installs packages
 // step 2. npm start - starts server
+
+function getVideo() {
+  navigator.mediaDevices
+    .getUserMedia({ video: true, audio: false }) // returns a promise - call .then on to further manipulate
+    .then((localMediaStream) => {
+      console.log(localMediaStream);
+      // localMediaStream is an object and needs to be converted into a url
+      //   or add it to the video srcObject
+      video.srcObject = localMediaStream;
+      video.play();
+    });
+}
+
+getVideo();
