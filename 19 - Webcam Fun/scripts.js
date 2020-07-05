@@ -47,9 +47,12 @@ function takePhoto() {
   //   creating a new element called link
   const link = document.createElement("a");
   link.href = data;
+  console.log(link);
   link.setAttribute("download", "handsome");
-  link.textContent = "Download Image";
+  //   link.textContent = "Download Image";
+  link.innerHTML = `<img src="${data}" alt="Handsome" />`;
   strip.insertBefore(link, strip.firstChild);
+  console.log(link);
 }
 getVideo();
 // paintToCanvas();
