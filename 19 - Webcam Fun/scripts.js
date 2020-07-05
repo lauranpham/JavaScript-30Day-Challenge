@@ -42,4 +42,5 @@ function takePhoto() {
   snap.play();
 }
 getVideo();
-paintToCanvas();
+// paintToCanvas();
+video.addEventListener("canplay", paintToCanvas);
