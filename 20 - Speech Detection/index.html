@@ -16,6 +16,9 @@
       // set interimResults to true gives you results in the interim. See what you are saying as you are speaking.
       recognition.interimResults = true;
       // create a paragraph
+      let p = document.createElement("p");
+      const words = document.querySelector(".words");
+      words.appendChild(p);
     </script>
 
     <style>
