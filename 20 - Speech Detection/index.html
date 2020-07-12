@@ -27,8 +27,11 @@
           .map((result) => result[0])
           .map((result) => result.transcript) // obtains speech transcript in an instaancce of speech
           .join("");
+
+        console.log(transcript);
       });
 
+      recognition.addEventListener("end", recognition.start);
       recognition.start();
     </script>
 
