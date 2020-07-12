@@ -13,6 +13,9 @@
       // speechRecognition is a global variable that lives on top of the browser. In chrome it lives in webkitSpeechRecongition
       // create an instance of speech recognition
       const recognition = new SpeechRecognition();
+      // set interimResults to true gives you results in the interim. See what you are saying as you are speaking.
+      recognition.interimResults = true;
+      // create a paragraph
     </script>
 
     <style>
