@@ -20,8 +20,9 @@
       const words = document.querySelector(".words");
       words.appendChild(p);
 
-      recognition.addEventListener("results", (e) => {
-        console.log(e);
+      recognition.addEventListener("result", (e) => {
+        // each event of speechRecognition gives a list of results. Nested in the list is the transcription. There is a isFinal boolean
+        console.log(e.results);
       });
 
       recognition.start();
