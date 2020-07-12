@@ -29,6 +29,11 @@
           .join("");
 
         p.textContent = transcript;
+        // if the e.results isFinal, it will create new paragraphs
+        if (e.results[0].isFinal) {
+          p = document.createElement("p");
+          words.appendChild(p);
+        }
         console.log(transcript);
       });
 
