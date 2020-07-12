@@ -28,10 +28,11 @@
           .map((result) => result.transcript) // obtains speech transcript in an instaancce of speech
           .join("");
 
+        p.textContent = transcript;
         console.log(transcript);
       });
 
-      recognition.addEventListener("end", recognition.start);
+      recognition.addEventListener("end", recognition.start); // only calls the function so it doesn't run on pageload
       recognition.start();
     </script>
 
